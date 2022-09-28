@@ -114,3 +114,7 @@ resource "local_file" "mypem" {
     filename = "mykey.pem"
     content = tls_private_key.example_ssh.private_key_pem
 }
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [azurerm_linux_virtual_machine.example[*]]
+  create_duration = "30s"
+}
